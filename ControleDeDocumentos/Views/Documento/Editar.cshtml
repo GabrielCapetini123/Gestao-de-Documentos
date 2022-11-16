@@ -1,0 +1,51 @@
+﻿@model DocumentoModel 
+@{
+    ViewData["Title"] = "Editar Documento";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Editar Documento</h1>
+
+</div>
+
+<form asp-controller="Documento" asp-action="AlterarDocumentosNoBanco" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="Título">Código</label>
+        <input type="text" asp-for="Codigo" class="form-control" placeholder="Digite o código do documento">
+        @Html.ValidationMessageFor(x => x.Codigo)
+    </div>
+
+    <div class="form-group">
+        <label for="Título">Título</label>
+        <input type="text" asp-for="Titulo" class="form-control" placeholder="Digite o título do documento">
+        @Html.ValidationMessageFor(x => x.Titulo)
+    </div>
+
+    <div class="form-group">
+        <label for="Título">Processo</label>
+        <select name="Processo">
+            <option value="Radeon">Radeon</option>
+            <option value="NVidea">NVidea</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Título">Categoria</label>
+        <input type="text" asp-for="Categoria" class="form-control" placeholder="Digite a categoria do documento">
+        @Html.ValidationMessageFor(x => x.Categoria)
+    </div>
+
+    <div class="form-group">
+        <label for="Título">Arquivo</label>
+        <input type="text" asp-for="Arquivo" class="form-control" placeholder="Digite o arquivo do documento">
+        @Html.ValidationMessageFor(x => x.Arquivo)
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Documento" asp-action="Index" role="button">Voltar</a>
+
+</form>
